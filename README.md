@@ -1,0 +1,2 @@
+The install scripts are taken from https://github.com/stacs-cp/AutoIG/tree/main/bin
+This repository contains shell scripts (only supports bash at the moment) that automate the process of collecting data for energy consumption of algorithms.
