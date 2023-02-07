@@ -9,8 +9,8 @@ echo "$name version: $version"
 BIN_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 pushd $BIN_DIR
-mkdir -p solvers
-pushd $BIN_DIR/solvers
+# mkdir -p solvers
+# pushd $BIN_DIR/solvers
 
 OS=$(uname)
 if [ "$OS" == "Darwin" ]; then
@@ -32,7 +32,7 @@ if [ "$OS" == "Linux" ]; then
     wget $url
     tar zxf $(ls *.tgz)
     d=$(ls -d */)
-    mv ${d}/* $BIN_DIR/solvers/$name
+    mv ${d}/* $BIN_DIR/$name
 else
     cp $BIN_DIR/minizinc-"$version"-part-mac.tgz ./
     tar zxf minizinc-"$version"-part-mac.tgz

@@ -14,8 +14,8 @@ if [ ! -d "$BIN_DIR/minizinc/share/minizinc" ]; then
 fi
 
 pushd $BIN_DIR
-mkdir -p solvers
-pushd $BIN_DIR/solvers
+# mkdir -p solvers
+# pushd $BIN_DIR/solvers
 
 OS=$(uname)
 if [ "$OS" == "Darwin" ]; then
@@ -36,7 +36,7 @@ pushd $SOURCE_DIR
 wget $url
 tar zxf $(ls picat*.gz)
 d="Picat"
-cp -r $d/lib $d/picat $BIN_DIR/solvers/$name/ # TODO: check the macos version
+cp -r $d/lib $d/picat $BIN_DIR/$name/ # TODO: check the macos version
 
 # download picat flatzinc intepreter
 wget https://github.com/nfzhou/fzn_picat/archive/refs/heads/main.zip; unzip main.zip
@@ -65,5 +65,4 @@ else
     exit 1
 fi
 
-popd
 popd

@@ -14,8 +14,8 @@ if [ ! -d "$BIN_DIR/minizinc/share/minizinc" ]; then
 fi
 
 pushd $BIN_DIR
-mkdir -p solvers
-pushd $BIN_DIR/solvers
+# mkdir -p solvers
+# pushd $BIN_DIR/solvers
 
 url="https://github.com/informarte/yuck/releases/download/20210501/yuck-${version}.zip"
 
@@ -28,7 +28,7 @@ wget $url --no-check-certificate
 d="yuck-${version}"
 unzip $d.zip
 pushd $d
-mv bin/ lib/ doc/ $BIN_DIR/solvers/$name
+mv bin/ lib/ doc/ $BIN_DIR/$name
 OS=$(uname)
 if [ "$OS" == "Darwin" ]; then
     sed -i "" "s#../bin/yuck#../../../../$name/bin/yuck#g" mzn/yuck.msc
@@ -48,5 +48,4 @@ popd
 
 rm -rf $SOURCE_DIR
 
-popd
 popd

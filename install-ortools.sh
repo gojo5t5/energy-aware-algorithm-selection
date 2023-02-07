@@ -15,8 +15,8 @@ fi
 
 pushd $BIN_DIR
 
-mkdir -p solvers
-pushd $BIN_DIR/solvers
+# mkdir -p solvers
+# pushd $BIN_DIR/solvers
 
 OS=$(uname)
 if [ "$OS" == "Darwin" ]; then
@@ -38,13 +38,12 @@ pushd $SOURCE_DIR
 wget $url
 tar zxf $(ls *.gz)
 d=$(ls -d */)
-mv ${d}/* $BIN_DIR/solvers/$name
+mv ${d}/* $BIN_DIR/$name
 popd
 
 rm -rf $SOURCE_DIR
 
 mv $BIN_DIR/$name/bin/fzn-or-tools $BIN_DIR/$name/bin/fzn-ortools
-
 cp -r $BIN_DIR/$name/share/minizinc $BIN_DIR/minizinc/share/minizinc/$name
 CONFIG_FILE="$BIN_DIR/minizinc/share/minizinc/solvers/$name.msc"
 cp solver.msc $CONFIG_FILE
@@ -65,5 +64,4 @@ else
     exit 1
 fi
 
-popd
 popd
