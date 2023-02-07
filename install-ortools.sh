@@ -15,6 +15,9 @@ fi
 
 pushd $BIN_DIR
 
+mkdir -p solvers
+pushd $BIN_DIR/solvers
+
 OS=$(uname)
 if [ "$OS" == "Darwin" ]; then
     url="https://github.com/google/or-tools/releases/download/v9.2/or-tools_flatzinc_MacOsX-12.0.1_v9.2.9972.tar.gz"
@@ -35,7 +38,7 @@ pushd $SOURCE_DIR
 wget $url
 tar zxf $(ls *.gz)
 d=$(ls -d */)
-mv ${d}/* $BIN_DIR/$name
+mv ${d}/* $BIN_DIR/solvers/$name
 popd
 
 rm -rf $SOURCE_DIR
@@ -62,4 +65,5 @@ else
     exit 1
 fi
 
+popd
 popd
